@@ -21,23 +21,28 @@ struct LandingView: View {
         NavigationView{
             VStack{
                 List{
-                    HStack{
-                        Image(systemName: "circle")
-                        Text("Study for Chemistry quiz")
+                    ItemView(title: "Study for chemistry quiz", done: false)
+                    ItemView(title: "Go for a run around campus", done: false)
+                    ItemView(title: "Finish computer science assignment", done: true)
+                }
+                .searchable(text: $searchText)
+                HStack{
+                    TextField("Enter a to-do item", text:
+                    $newItemDescirption)
+                    Button("ADD"){
+                        //Add the new to-do item
                     }
-                    Label(title: {Text("Go for a run around campus")}, icon: {Image(systemName: "circle")
-                    })
-                    Label(title: {Text("Laundry")}, icon: {Image(systemName: "circle")
-                    })
+                    .font(.caption)
                 }
-                    .searchable(text: $searchText)
-                    
-                }
-                .navigationTitle("To do")
-                .padding(20)
             }
+            .navigationTitle("To do")
+            .padding(20)
         }
+        
     }
+            }
+        
+    
     
 
 
@@ -48,3 +53,12 @@ struct LandingView: View {
     LandingView()
 }
 
+
+struct ItemView: View {
+    let title: String
+    let done: Bool
+    var body: some View {
+        Label(title: {Text(title)}, icon: {Image(systemName: "circle")
+        })
+    }
+}
