@@ -21,21 +21,26 @@ struct LandingView: View {
         NavigationView{
             VStack{
                 List{
-                    Text("Study for Chemistry test")
-                    Text("Go for a run around campus")
-                    Text("Laundry")
+                    HStack{
+                        Image(systemName: "circle")
+                        Text("Study for Chemistry quiz")
+                    }
+                    Label(title: {Text("Go for a run around campus")}, icon: {Image(systemName: "circle")
+                    })
+                    Label(title: {Text("Laundry")}, icon: {Image(systemName: "circle")
+                    })
                 }
-                .searchable(text: $searchText)
-                HStack{
+                    .searchable(text: $searchText)
                     
                 }
+                .navigationTitle("To do")
                 .padding(20)
             }
-            .navigationTitle("To do")
         }
     }
     
-}
+
+
 
 
 
