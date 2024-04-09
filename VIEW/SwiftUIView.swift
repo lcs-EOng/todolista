@@ -21,9 +21,18 @@ struct LandingView: View {
         NavigationView{
             VStack{
                 List{
-                    ItemView(title: "Study for chemistry quiz", done: false)
-                    ItemView(title: "Go for a run around campus", done: false)
-                    ItemView(title: "Finish computer science assignment", done: true)
+                    ItemView(
+                        title: "Study for chemistry quiz",
+                        done: false
+                    )
+                    ItemView(
+                        title: "Go for a run around campus",
+                        done: false
+                    )
+                    ItemView(
+                        title: "Finish computer science assignment",
+                        done: true
+                    )
                 }
                 .searchable(text: $searchText)
                 HStack{
@@ -58,7 +67,13 @@ struct ItemView: View {
     let title: String
     let done: Bool
     var body: some View {
-        Label(title: {Text(title)}, icon: {Image(systemName: "circle")
-        })
+        Label(title: {Text(title)}, icon: {
+            if done == true{
+                Image(systemName: "checkmark.circle")
+            } else{
+                Image(systemName: "circle")
+            }
+        }
+        )
     }
 }
